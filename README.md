@@ -1,2 +1,2 @@
-# BLM19305E-HW1
-Merve Çınar 1821221025 Homework1
+# BLM19305E
+Merve Çınar 1821221025 
