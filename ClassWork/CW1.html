@@ -1,0 +1,52 @@
+<html><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>SAYAÇ MAKİNASI </title>
+
+  <style> /* CSS comment */
+    body { max-width: 440px; }
+    input { width: 50px }
+    .out {
+        font-size: 18px;
+        background: rgb(32, 170, 170);
+        color:black;
+        text-align: center;
+        padding: 10px;
+    }
+  </style>
+</head>
+
+<body data-new-gr-c-s-check-loaded="14.1037.0" data-gr-ext-installed="">   <!-- HTML comment: Modify all items marked xxx -->
+  <a href="https://mervecinar.github.io/BLM19305E//ClassWork/CW1.pdf">Browser tools</a>
+<h2>SAYINIZ</h2>
+SAYINIZ 
+<input type="number" value="0" onchange="out.innerText=value">
+&emsp;
+<button onclick="increment()">Sayı'yı Arttır</button>
+<p class="out">4</p>
+
+<hr>
+<b>YAPILAN İŞLEM</b>
+<pre>function increment() {<br>    let c = Number(out.innerText)+1<br>    console.log("counter = "+c)<br>    out.innerText = c<br>}</pre>
+
+<hr>
+<p>Kaynakça: <a href="https://www.w3schools.com/js/" target="NewTab">JS Tutorial</a>
+</p>
+
+
+<script>
+"use strict";
+// JavaScript comment
+function increment() {
+    let c = Number(out.innerText)+1
+    console.log("counter = "+c)
+    out.innerText = c
+}
+document.querySelector('h2').innerText = document.title
+document.querySelector('pre').innerText = increment
+const out = document.querySelector('.out'); increment()
+</script>
+
+
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>
