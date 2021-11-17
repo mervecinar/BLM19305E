@@ -1,17 +1,25 @@
 <html lang="en-US"><head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width">
-  <title>NET PRESENT VALUE TABLE</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>NET PRESENT VALUE TABLE</title>
 
+  
 <style>
     table {
-       
        border-collapse: collapse;
-       width: 500px;
+       text-align: right;
+       width: 400px;
    }
-  body { max-width: 100%; color:rgb(0, 14, 13) }
+  body { color:rgb(0, 14, 13) }
   pre  { overflow-x: auto; }
   input { width: 50px }
+  td{
+      text-align: right;
+  }
+  th{
+      font-size: 18;
+  }
+  
   
 </style>
 </head>
@@ -24,150 +32,63 @@ period = <input type="number" id="ex" value="1" onchange="calculate()">
 percent = <input type="number" id="lam" value="10" onchange="calculate()">
 &emsp;
 <span id="res">P(x, m) = 0.909</span>
-<pre>
-  <table border="1">
-    <body>
-        <tr>
-            <td>&nbsp;</td>
-            <td> 10%</td>
-            <td> 12%</td>
-            <td> 14%</td>
-            <td> 15%</td>
-            <td> 16%<br />
-            </td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>0.909 </td>
-            <td>0.893 </td>
-            <td>0.877</td>
-            <td>0.870</td>
-            <td>0.862</td>
+<pre id="out" ></pre>
 
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>0.826 </td>
-            <td>0.797</td>
-            <td>0.769 </td>
-            <td>0.756</td>
-            <td>0.743</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>0.0751 </td>
-          <td>0.712</td>
-          <td>0.675</td>
-          <td>0.658</td>
-          <td>0.641</td>
-          
-      </tr>
-      <tr>
-        <td>4</td>
-        <td>0.683 </td>
-        <td>0.636</td>
-        <td>0.592</td>
-        <td>0.572</td>
-        <td>0.552</td>
-    </tr>
-    <tr>
-      <td>5</td>
-      <td>0.683 </td>
-      <td>0.636</td>
-      <td>0.592</td>
-      <td>0.572</td>
-      <td>0.552</td>
-  </tr>
-  <tr>
-    <td>6</td>
-    <td> 0.564</td>
-    <td>0.507</td>
-    <td>0.456</td>
-    <td>0.432</td>
-    <td>0.410</td>
-</tr>
-<tr>
-  <td>7</td>
-  <td>0.513</td>
-  <td>0.452</td>
-  <td>0.400</td>
-  <td>0.376</td>
-  <td>0.354</td>
-</tr>
-<tr>
-  <td>8</td>
-  <td>0.467</td>
-  <td>0.404</td>
-  <td>0.351</td>
-  <td>0.327</td>
-  <td>0.305</td>
-</tr>
-<tr>
-  <td>9</td>
-  <td> 0.424</td>
-  <td>0.361</td>
-  <td>0.308</td>
-  <td>0.284</td>
-  <td>0.263</td>
-</tr>
-<tr>
-  <td>10</td>
-  <td>0.386</td>
-  <td>0.322</td>
-  <td>0.270</td>
-  <td>0.247</td>
-  <td>0.227</td>
-</tr>
-
-    </body>
-</table>
-</pre>
 <hr>
+<p>
+  
+    <img src="npv.png" max-width: 100% />
+    </p>
+  <p>Referance: <a href="https://ablesim.com/wp-content/uploads/2018/05/Net-Present-Value-Table.jpg?x36010" target="NewTab">Net Present Value Table</a>
+  </p>
+  
 <b>Sample code</b>
 <pre id="sample">function npv(x, m, f=3) {<br>    let p = 1/(Math.pow(1+m,x))<br>    return p.toFixed(f)<br>}<br>function doTable() {<br>    const L = [10, 12, 14, 15, 16]<br>    let a = L.map((m) =&gt; 'm='+m)<br>    let str = header(a)<br>    for (let x=0; x&lt;=10; x++) { <br>       let a = L.map((m) =&gt; npv(x, m))<br>       str += oneLine(a, x)<br>    }<br>    return str<br>}</pre>
 
 <hr>
-
-<p>
-
-  <img src="npv.png" max-width: 100% />
-  </p>
 <p>Referance: <a href="https://ablesim.com/wp-content/uploads/2018/05/Net-Present-Value-Table.jpg?x36010" target="NewTab">Net Present Value Table</a>
 </p>
 
 <script>
 "use strict";
 function npv(x, m, f=3) {
-  let j=1+(m/100)
-  let i=(Math.pow(j,x))
-  let p =1/i
-  return p.toFixed(f)
+    let j=1+(m/100)
+    let i=(Math.pow(j,x))
+    let p =1/i
+    return p.toFixed(f)
 }
 function calculate() {
-  let x = Number(ex.value)
-  if (!Number.isInteger(x)) {
-     x = Math.round(x); ex.value = x
-  }
-  let m = Number(lam.value)
-  res.innerText = "NpV= "+npv(x, m)
+    let x = Number(ex.value)
+    if (!Number.isInteger(x)) {
+       x = Math.round(x); ex.value = x
+    }
+    let m = Number(lam.value)
+    res.innerText = "NpV= "+npv(x, m)
 }
 function doTable() {
-  const L = [10, 12, 14, 15, 16]
-  let a = L.map((m) => '%'+m)
-  let str = header(a)
-  for (let x=1; x<=10; x++) { 
-     let a = L.map((m) => npv(x, m))
-     str += oneLine(a, x)
-  }
-  return str
+
+const L =[10,12,14,15,16]
+let str = "<table border ='1.5'><th colspan=6 >Discount Rate % &nbsp &nbsp </th>";
+let a = L.map((m)=>m+'%')
+str +="<tr><td></td>"+header(a) +"</td></tr>";
+
+for (let x=1; x<=10; x++) { 
+
+   let a =L.map((m) =>"<td>"+npv(x, m)+"</td>")
+   str +="<tr>" +oneLine(a,x)+"</tr>"
 }
-let header  = (a) =>"Period"+' '+ a.join('       ')  
-let oneLine = (a, x) => '\n'+x+'    '+ a.join('     ')
-  
-  title.innerText = document.title
-  sample.innerText = npv+'\n'+doTable
-  calculate()
- 
+str += "</table>";
+return str;
+} 
+
+let header  = (a) =>'<td>'+ a.join('</td><td>') 
+let oneLine = (a, x)=>'<td>'+x+'</td>'+ a.join(' ');
+
+title.innerText = document.title
+sample.innerText= npv+'\n'+doTable
+calculate()
+out.innerHTML = doTable()
 </script>
 
-</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>
+
+</body></html>
