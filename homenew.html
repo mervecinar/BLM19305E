@@ -46,8 +46,7 @@ percent = <input type="number" id="lam" value="10" onchange="calculate()">
 <pre id="sample">function npv(x, m, f=3) {<br>    let p = 1/(Math.pow(1+m,x))<br>    return p.toFixed(f)<br>}<br>function doTable() {<br>    const L = [10, 12, 14, 15, 16]<br>    let a = L.map((m) =&gt; 'm='+m)<br>    let str = header(a)<br>    for (let x=0; x&lt;=10; x++) { <br>       let a = L.map((m) =&gt; npv(x, m))<br>       str += oneLine(a, x)<br>    }<br>    return str<br>}</pre>
 
 <hr>
-<p>Referance: <a href="https://ablesim.com/wp-content/uploads/2018/05/Net-Present-Value-Table.jpg?x36010" target="NewTab">Net Present Value Table</a>
-</p>
+
 
 <script>
 "use strict";
