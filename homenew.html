@@ -4,7 +4,12 @@
   <title>NET PRESENT VALUE TABLE</title>
 
 <style>
-  body { max-width: 440px; color:rgb(0, 14, 13) }
+    table {
+       
+       border-collapse: collapse;
+       width: 500px;
+   }
+  body { max-width: 100%; color:rgb(0, 14, 13) }
   pre  { overflow-x: auto; }
   input { width: 50px }
   
@@ -22,18 +27,27 @@ percent = <input type="number" id="lam" value="10" onchange="calculate()">
 <pre>
   <table border="1">
     <body>
+      <tr>
+        <td>&nbsp;</td>
+        <td> %10</td>
+        <td> %12</td>
+        <td> %14</td>
+        <td> %15</td>
+        <td> %16<br />
+        </td>
+    </tr>
         <tr>
             <td>&nbsp;</td>
-            <td> m=%10</td>
-            <td> m=%12</td>
-            <td> m=%14</td>
-            <td> m=%15</td>
-            <td> m=%16<br />
+            <td> %10</td>
+            <td> %12</td>
+            <td> %14</td>
+            <td> %15</td>
+            <td> %16<br />
             </td>
         </tr>
         <tr>
-            <td>x=1</td>
-            <td>.909 </td>
+            <td>1</td>
+            <td>0.909 </td>
             <td>0.893 </td>
             <td>0.877</td>
             <td>0.870</td>
@@ -41,7 +55,7 @@ percent = <input type="number" id="lam" value="10" onchange="calculate()">
 
         </tr>
         <tr>
-            <td>x=2</td>
+            <td>2</td>
             <td>0.826 </td>
             <td>0.797</td>
             <td>0.769 </td>
@@ -49,7 +63,7 @@ percent = <input type="number" id="lam" value="10" onchange="calculate()">
             <td>0.743</td>
         </tr>
         <tr>
-          <td>x=3</td>
+          <td>3</td>
           <td>0.0751 </td>
           <td>0.712</td>
           <td>0.675</td>
@@ -58,7 +72,7 @@ percent = <input type="number" id="lam" value="10" onchange="calculate()">
           
       </tr>
       <tr>
-        <td>x=4</td>
+        <td>4</td>
         <td>0.683 </td>
         <td>0.636</td>
         <td>0.592</td>
@@ -66,7 +80,7 @@ percent = <input type="number" id="lam" value="10" onchange="calculate()">
         <td>0.552</td>
     </tr>
     <tr>
-      <td>x=5</td>
+      <td>5</td>
       <td>0.683 </td>
       <td>0.636</td>
       <td>0.592</td>
@@ -74,7 +88,7 @@ percent = <input type="number" id="lam" value="10" onchange="calculate()">
       <td>0.552</td>
   </tr>
   <tr>
-    <td>x=6</td>
+    <td>6</td>
     <td> 0.564</td>
     <td>0.507</td>
     <td>0.456</td>
@@ -82,7 +96,7 @@ percent = <input type="number" id="lam" value="10" onchange="calculate()">
     <td>0.410</td>
 </tr>
 <tr>
-  <td>x=7</td>
+  <td>7</td>
   <td>0.513</td>
   <td>0.452</td>
   <td>0.400</td>
@@ -90,7 +104,7 @@ percent = <input type="number" id="lam" value="10" onchange="calculate()">
   <td>0.354</td>
 </tr>
 <tr>
-  <td>x=8</td>
+  <td>8</td>
   <td>0.467</td>
   <td>0.404</td>
   <td>0.351</td>
@@ -98,7 +112,7 @@ percent = <input type="number" id="lam" value="10" onchange="calculate()">
   <td>0.305</td>
 </tr>
 <tr>
-  <td>x=9</td>
+  <td>9</td>
   <td> 0.424</td>
   <td>0.361</td>
   <td>0.308</td>
@@ -106,7 +120,7 @@ percent = <input type="number" id="lam" value="10" onchange="calculate()">
   <td>0.263</td>
 </tr>
 <tr>
-  <td>x=10</td>
+  <td>10</td>
   <td>0.386</td>
   <td>0.322</td>
   <td>0.270</td>
@@ -124,7 +138,8 @@ percent = <input type="number" id="lam" value="10" onchange="calculate()">
 <hr>
 
 <p>
-  <img src="npv.png" width="600" height="300"/>
+
+  <img src="npv.png" max-width: 100% />
   </p>
 <p>Referance: <a href="https://ablesim.com/wp-content/uploads/2018/05/Net-Present-Value-Table.jpg?x36010" target="NewTab">Net Present Value Table</a>
 </p>
