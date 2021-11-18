@@ -1,0 +1,64 @@
+<html lang="en-US"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="icon" href="https://blm-fsmvu.github.io/305/images/icon192.png">
+  <title>Merve ÇINAR </title>
+  <style> /* CSS comment */
+    body { max-width: 440px; }
+    #url { width: 190px; }
+    span, #url { color: rgb(0, 0, 0); }
+  </style>
+  </head>
+<body>
+<h2>Battary Status</h2>
+<div id="charge">Charging</div>
+<progress id="sarj" value="0" max="100"></progress>
+<span id="yuzde">
+</span>
+<h2> Online  Status</h2>
+<p id="online">Connected - - Online</p>
+<h2>Keyboard</h2>
+<span id="Keyboard">
+</span><span id="key"></span>
+<br><br>
+<b>Sample code</b>
+<pre id="sample"> </pre>
+<hr>
+<script>
+  "use strict";
+  function init() {
+  //complete the code below
+  navigator.getBattery().then(b => {
+    let levelChange = () => {
+      yuzde.innerText =b.level*100+' % ';
+      sarj.value = 100*b.level;
+    }
+    levelChange();
+    b.onlevelchange = levelChange;
+    let chargeChange = () => { charge.innerText = (b.charging) ?
+        " Charging . . ." : " Discharging . . .";
+    }
+    chargeChange();
+    b.onchargingchange = chargeChange;
+  })
+  online.innerText = (window.navigator.onLine)?
+      "Connected  - - Online" :
+    "Disconnected  - -  Offline";
+    window.addEventListener("online", () => {
+      online.innerText = "Connected -- Online";
+    });
+    window.addEventListener("offline", () => {
+      online.innerText = "Disconnected - - Offline";
+    });
+
+  window.onkeydown = (evt) => {
+    key.innerText = evt.key;
+  };
+  window.onkeyup = (evt) => {
+    key.innerText = "   ";
+  };
+}
+  sample.innerText = init;
+  init();
+</script>
+</body></html>
