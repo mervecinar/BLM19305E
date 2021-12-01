@@ -7,7 +7,7 @@
   "theme-color": "orange",
   "icons": [
     {
-      "src": "astronaut.png",
+      "src": "https://mervecinar.github.io/BLM19305E//astronaut.png",
       "sizes": "192x192",
       "type": "image/png"
     }
