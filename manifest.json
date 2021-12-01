@@ -1,0 +1,15 @@
+{
+  "name": "Advanced Programming Techniques",
+  "short_name": "BLM305",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "orange",
+  "theme-color": "orange",
+  "icons": [
+    {
+      "src": "astronaut.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
