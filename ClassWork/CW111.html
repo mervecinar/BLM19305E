@@ -1,0 +1,92 @@
+<html lang="en-US"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" href="../images/icon192.png">
+    <title>GitHub Users</title>
+    <style>
+        body {
+            max-width: 440px;
+            font-size: 18px
+            ;
+        }
+        
+        img {
+            padding-right: 12px; 
+            width: 420px;
+            float: left;
+        }
+        pre { overflow-x: auto; }
+        #out { color: rgb(0, 0, 0); }
+      </style>
+  </head>
+  
+  <body data-new-gr-c-s-check-loaded="14.1040.0" data-gr-ext-installed="">
+  
+  <h2 id="title">GitHub Users</h2>
+  <input type="text" id="usr" value="mervecinar" onchange="readUser()">
+  <p id="out"><img src="https://avatars.githubusercontent.com/u/59336466?v=4" align="center"><br><b>Merve Çınar</b><br>mervecinar<br><br>null<br><br><a href="" target="NewTab"></a></p>
+  
+  <hr>
+  <hr>
+<b>Sample code</b>
+<pre id=sample aria-setsize="10px"></pre>
+<hr>
+  
+  
+  <script>
+  "use strict";
+  function error(e) {
+      out.innerText = e
+      out.style.color = 'red'
+      console.error(e)
+  }
+  async function toJSON(url) {
+    try {
+      let r = await fetch(url)
+      if (!r.ok) throw cause(r.status)
+      return r.json()
+    } catch (e) {
+      error(e)
+    }
+  }
+  async function readUser() {
+    const URL = "https://api.github.com/users/"
+      const BR = '<BR>'
+      let u = await toJSON(URL+usr.value)
+      if (!u || !u.login) return
+      out.style.color = ''
+      out.innerHTML = ''
+
+      //avatar
+      out.innerHTML = `<img src="${u.avatar_url}">`
+      //name
+      let s = (u.name || u.login).bold()
+      out.innerHTML += s+BR; console.log(s)
+    //username
+      let userName=u.login
+      out.innerHTML += userName+BR; console.log(userName)
+      out.innerHTML +="<br>"
+      //company
+      let company=u.company
+      out.innerHTML += "Company : "+company+BR; console.log(company)
+      //lLocation
+      let j
+      if (u.location) j = u.location
+
+      out.innerHTML +="Location : "+j+BR; console.log(j)
+      
+      
+      //link
+      let h = "github.com/"+u.login
+      out.innerHTML +="Link :"+ 
+      `<a href="https://${h}" target=NewTab>${h}</a>`
+   
+  }
+      title.innerText = document.title
+      out.innerText = "Reading data"
+      readUser()
+      sample.innerText = toJSON+ ' \n ' +readUser + ' \n ' 
+  </script>
+
+  
+  </body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>
