@@ -1,0 +1,122 @@
+<html lang="en-US"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title >FISH ANIMATION</title>
+  <style>
+    body {
+      max-width: 400px;
+      font-size: 30px;
+      transform :translate(30px,50px);
+      background: rgb(42, 140, 185); 
+      font-family:monospace
+
+    }
+    .button1{
+      max-width: 100%;
+      position: absolute;
+      transform :translate(50px,10px);
+      user-select: none;
+      cursor: pointer; 
+     
+    }
+    .button2{
+      max-width: 100%;
+      position: absolute;
+      transform :translate(130px,10px);
+      user-select: none;
+      cursor: pointer; 
+    }
+    .button3{
+      max-width: 100%;
+      position: absolute;
+      transform :translate(178px,10px);
+      user-select: none;
+      cursor: pointer; 
+    }
+    .button4{
+      max-width: 100%;
+      position: absolute;
+      transform :translate(232px,10px);
+      user-select: none;
+      cursor: pointer; 
+    }
+    #fff {
+      max-width: 100%;
+      user-select: none;
+      position: absolute;
+      left: 0px;
+      top: 250px;
+    }
+</style>
+</head>
+<body>
+
+<h2 id="title"  > Fish Animation  </h2>
+  <div id="fff">
+  <img src="mmm.gif" 
+  id="fish" style="visibility:visible; margin-top:px;"><br>
+</div> 
+<div class="button1" >
+<button onclick="fff .animate(d, 1600)" >Somersault</button>
+</div> 
+<div class="button2"> 
+<button onclick="SS();">Swim</button>
+</div> 
+<div class="button3"> 
+ <button onclick="bigg()">Bigger</button>
+</div> 
+ <div class="button4"> 
+ <button onclick="small()">Smaller</button>
+</div> 
+</p>
+<script>
+
+  var colors = ['rgb(0, 255, 255)', 'rgb(240, 255, 255)', 'rgb(137, 207, 240)','rgb(0, 0, 255)',
+  'rgb(115, 147, 179)','	rgb(0, 150, 255)','rgb(0, 71, 171)','rgb(111, 143, 175)','rgb(125, 249, 255)',
+  'rgb(63, 0, 255)','rgb(173, 216, 230)','rgb(0, 0, 128)','rgb(182, 208, 226)','rgb(135, 206, 235)',
+  'rgb(70, 130, 180)','rgb(4, 55, 242)',];
+
+var count = 0;
+
+setInterval(function(){
+    document.querySelector('body').style.background = colors[count];
+    count++;
+    if (count == colors.length) count = 0;}, 1000);
+
+
+      function bigg() {
+            var i = document.getElementById("fish");
+            var boyut = i.clientWidth;
+            console.log("currWidth: "+boyut)
+            if(boyut>=300){
+              alert("THE FISH IS BIG ENOUGH !!! ")
+            }else{
+            i.style.width = (boyut + 100) + "px";
+            }
+        }
+
+        function small() {
+            var i = document.getElementById("fish");
+            var boyut = i.clientWidth;
+            console.log("currWidth: "+boyut)
+            if(boyut<=180){
+              alert("THE FISH IS SMALL ENOUGH !!! ")
+            }else{
+              i.style.width = (boyut - 100) + "px";
+            }
+        }
+
+
+function SS(){
+  fish.animate(swim,5000);
+document.getElementById("fish").style.visibility = "visible";
+document.getElementById("fish").disabled = false;
+}
+
+title.innerText = document.title;
+let
+  d = { transform: ["rotate(0)", "rotate(360deg)"] },
+  swim = [{transform: 'translateY(50px)'},{transform: 'translateX(200px)'}],
+  a = [d];
+</script>
+</body></html>
