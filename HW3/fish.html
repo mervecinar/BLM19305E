@@ -45,8 +45,13 @@
       user-select: none;
       position: absolute;
       left: 0px;
-      top: 250px;
+      top: 150px;
     }
+    #sample, #out { overflow-x: auto;
+    transform :translate(5px,200px);
+    font-size: 10px; }
+
+  
 </style>
 </head>
 <body>
@@ -69,16 +74,52 @@
  <button onclick="small()">Smaller</button>
 </div> 
 </p>
+
+
+<pre id="sample">
+  <h3>Sample code</h3>
+  function bigg() {
+    var i = document.getElementById("fish");
+    var boyut = i.clientWidth;
+    console.log("currWidth: "+boyut)
+    if(boyut>=300){
+      alert("THE FISH IS BIG ENOUGH !!! ")
+    }else{
+    i.style.width = (boyut + 100) + "px";
+    }
+}
+
+function small() {
+    var i = document.getElementById("fish");
+    var boyut = i.clientWidth;
+    console.log("currWidth: "+boyut)
+    if(boyut<=180){
+      alert("THE FISH IS SMALL ENOUGH !!! ")
+    }else{
+      i.style.width = (boyut - 100) + "px";
+    }
+}
+
+function SS(){
+fish.animate(swim,5000);
+document.getElementById("fish").style.visibility = "visible";
+document.getElementById("fish").disabled = false;
+}
+
+title.innerText = document.title;
+let
+d = { transform: ["rotate(0)", "rotate(360deg)"] },
+swim = [{transform: 'translateY(50px)'},{transform: 'translateX(200px)'}],
+a = [d];
+</pre>
+
 <script>
-
-
-
       function bigg() {
             var i = document.getElementById("fish");
             var boyut = i.clientWidth;
             console.log("currWidth: "+boyut)
             if(boyut>=300){
-              alert("THE FISH IS BIG ENOUGH ")
+              alert("THE FISH IS BIG ENOUGH !!! ")
             }else{
             i.style.width = (boyut + 100) + "px";
             }
@@ -89,12 +130,11 @@
             var boyut = i.clientWidth;
             console.log("currWidth: "+boyut)
             if(boyut<=180){
-              alert("THE FISH IS SMALL ENOUGH ")
+              alert("THE FISH IS SMALL ENOUGH !!! ")
             }else{
               i.style.width = (boyut - 100) + "px";
             }
         }
-
 
 function SS(){
   fish.animate(swim,5000);
