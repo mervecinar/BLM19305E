@@ -146,7 +146,7 @@
             let w = data.weather[0]; showIcon(w.icon)
             let celsius = convert(data.main.temp).toFixed(0)
             let hh = w.main+"  "+celsius+"°", {sys} = data
-            let yy = data.name+', '+BUL(sys.country)
+            let yy = data.name;
             hava.innerText = hh; yer.innerText = yy
             console.log(hh, yy); console.log(sys)
             lat = data.coord.lat; lon = data.coord.lon
