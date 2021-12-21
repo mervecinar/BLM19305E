@@ -43,27 +43,29 @@
   </head>
   <body>
   
-  
-  <div id="main">
-  <p id="yer">Okmeydanı, TR</p>
-  <p><img id="icon" src="https://openweathermap.org/img/w/03d.png">
-  <span id="hava">Clouds  12°</span></p>
-  </div>
-
-  <h2>Using SVG</h2>
-  <svg id="svg" width="450" height="300">
-      <rect width="450" height="300" style="fill:rgb(167, 200, 211);stroke-width:12;"></rect>
-      <foreignObject width="350" height="350" x="25" y="25">
-          <text x="50" y="50" width="50" height="50">
-              <div>
-                  <text  x="23" y="40" >DETAİL</text>
-                  <pre id="detail">Clouds 13°<br>Wind 26 km/h SW<br>Pressure 763 mm<br>Humidity %71</pre>
-                  <text font-size="30" x="150" y="40">SUN</text>
-                  <pre id="sun">Rise 08:18<br>Noon 12:57<br>Set 17:36<br>Zone 3</pre>
-              </div>
-          </text>
-      </foreignObject>
-  </svg>
+    <div>
+        Lat/Lon <input id="mahal" type="text" value="41 29">
+      </div>
+    <div id="main">
+        <p id="yer">Okmeydanı, TR</p>
+        <p><img id="icon" src="https://openweathermap.org/img/w/03d.png">
+        <span id="hava">Clouds  12°</span></p>
+        </div>
+    <svg id="svg" width="450" height="300">
+        <rect width="450" height="300" style="fill:rgb(167, 200, 211);stroke-width:12;"></rect>
+        <foreignObject width="350" height="350" x="25" y="25">
+            <text x="50" y="50" width="50" height="50">
+                <div>
+                    <text  x="23" y="40" >DETAİL</text>
+                    <pre id="detail">Clouds 13°<br>Wind 26 km/h SW<br>Pressure 763 mm<br>Humidity %71</pre>
+                    <text font-size="30" x="150" y="40">SUN</text>
+                    <pre id="sun">Rise 08:18<br>Noon 12:57<br>Set 17:36<br>Zone 3</pre>
+                </div>
+            </text>
+        </foreignObject>
+    </svg>
+    <hr />
+    <div>
   <pre id="sample">  <h3>Sample code</h3>
     svg id="svg" width="450" height="300">
         rect width="450" height="300" style="fill:rgb(167, 200, 211);stroke-width:12;">
