@@ -42,22 +42,7 @@
     </style>
   </head>
   <body>
-    <h2>Using CANVAS</h2>
-  <hr>
-    <canvas id="canvans" width="400" height="80" style="border:1px solid #000000;">
-    </canvas>
-
-    <pre id="sample">
-        canvas id="canvans" width="400" height="80" style="border:1px solid #000000;">
-     canvas> 
-     var c = document.getElementById("canvans");
-     var ctx = c.getContext("2d");
-     ctx.font = "30px Arial";
-     ctx.fillText("CW#12 -- Open Weather", 10, 50);
-    </pre>
-  <div>
-    Lat/Lon <input id="mahal" type="text" value="41 29">
-  </div>
+  
   
   <div id="main">
   <p id="yer">Okmeydanı, TR</p>
@@ -102,10 +87,7 @@
   </div>
   
   <script>
-      var c = document.getElementById("canvans");
-var ctx = c.getContext("2d");
-ctx.font = "30px Arial";
-ctx.fillText("CW#12 -- Open Weather", 10, 50);
+    
   "use strict";
   function toHM(t) { // t in seconds -- convert to minutes
       //number of hours since midnight, in local time
