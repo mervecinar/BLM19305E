@@ -7,24 +7,23 @@
 h2 {
   width : 100%;
   height: 65px;
-  font-weight :200;
+  font-weight :700;
   line-height : 1.5;
+ 
   padding : 5px;
-  font-family :'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
   text-align: center; 
   background-color: #e9e9e9;  
   color : rgb(99, 99, 99);
   transition : all 3s;
 }
-
 h3 {
   text-align:center;
-
   width: 100%;
   height:25px ;
   position: inherit;
   transform :translate(100px, 40px);
-  background-color :   rgb(226, 204, 247);
+  background-color :   rgb(231, 219, 243);
   color : rgb(0, 0, 0);
   line-height : 1.5;
   
@@ -36,18 +35,17 @@ h4 {
 
   position: absolute;
   transform :translate(100px,0px);
-  background-color :   rgb(226, 204, 247);
+  background-color :   rgb(231, 219, 243);
   color : rgb(0, 0, 0);
   line-height : 1.5;
   
 }
 
-
 body {
-  background-color :  rgb(226, 204, 247);
+  background-color :  rgb(231, 219, 243);
 }
 .modes {
-  background-color :   rgb(226, 204, 247);
+  background-color :    rgb(231, 219, 243);
   color : rgb(0, 0, 0);
   text-align : center;
   height : 70px;
@@ -123,7 +121,7 @@ button:hover {
     color : rgb(99, 99, 99);
     letter-spacing : 5px;
     font-size :xx-large;
-    transition : all 5s;"> COLOR GAME  / Merve Çınar </h1>
+    transition : all 3s;"> COLOR GAME  / Merve Çınar </h1>
   
   <h2>WHICH IS THIS COLOR  <br><span id="rnk">RGB (255,255,255)</span></h2>
   <div style="text-align: center;">
@@ -205,9 +203,9 @@ function oyna(){
   alert("HOW TO PLAY THIS GAME !? \n\n"+
   "There are RGB color ratios, these ratios represent red, green and blue, respectively. The player "
   +"tries to guess the color by looking at these color ratios. Do not forget this; \n\n"
-  +"RED+ BLUE=PURPLE\n"
-  +"RED+ GREEN=BROWN\n"
-  +"BLUE+ GREEN=TURQUOISE\n\n"
+  +"RED + BLUE = PURPLE\n"
+  +"RED + GREEN = BROWN\n"
+  +"BLUE + GREEN = TURQUOISE\n\n"
   +"GOOD LUCK :)");
 
   }
@@ -271,6 +269,7 @@ function oyna(){
          console.log(" \n  deneme sayısı :" + 
          (iyiscor+kötüscor)  + " \n  doğru sayısı :"   +
          iyiscor+  " \n  yanlış sayısı :"   +kötüscor);
+         reset();
   
         }else if(counter<60){
   
@@ -278,13 +277,12 @@ function oyna(){
           score +=10;
           iyiscor++;
           scorea.innerHTML = score;
+          dy.style.color = secilen;
+        h1.style.background=secilen;
+        h2.style.background=secilen;    
           dy.textContent = "Correct!";
           dy.style.color = "Green";
           changeColors(secilen); 
-              dy.style.color = secilen;
-        h1.style.background=secilen;
-        h2.style.background=secilen;    
-     
           reset();
   
         } else  {
@@ -304,13 +302,9 @@ function oyna(){
   start.addEventListener("click" , function() {
     reset();
   });
-  
-  //sets easy and hard mode styling and game
   function setUpModeListeners(){
     for (var i = 0; i < modess.length; i++) {
       modess[i].addEventListener("click" , function(){
-        // actualGame.style.display = "block";
-        // intro.style.display = "none";
         modess[0].classList.remove("selected");
         modess[1].classList.remove("selected");
         modess[2].classList.remove("selected");
