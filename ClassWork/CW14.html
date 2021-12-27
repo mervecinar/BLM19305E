@@ -43,10 +43,13 @@
 </p>
 </div>
 <pre>
-    flipHorizontally(img,0,0);
-    canvas.addEventListener('dblclick', function(){ 
-        cx.drawImage(img, 0, 0);
-    });
+     canvas.addEventListener('dblclick', function(){ 
+    cx.drawImage(img, 0, 0);
+    if( canvas.addEventListener('dblclick', function(){ 
+      MENU.flipHorizontally(img,0,0);
+      
+}) )  }
+});
     function flipHorizontally(img,a,b){
         cx.translate(a+img.width,b);
         cx.scale(-1,1);
@@ -74,8 +77,12 @@ function start() {
 }
 canvas.addEventListener('dblclick', function(){ 
     cx.drawImage(img, 0, 0);
+    if( canvas.addEventListener('dblclick', function(){ 
+      MENU.flipHorizontally(img,0,0);
+      
+}) ){
+    }
 });
-
 
 
 function pick(evt) {
