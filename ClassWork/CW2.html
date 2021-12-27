@@ -23,7 +23,44 @@
 
 <hr />
 <b>Sample code</b>
-<pre id=sample></pre>
+<pre id=sample>
+  function range (a,b,c){
+    let d=[]
+    if(c==undefined){c=1}
+    x=((a-b)/(c));
+    if(x>0){x=(-1 * x ) + 1 }
+    for (let i = 0; i < x ;  i++){
+      d.push(a);
+      a+=c;
+        }
+        return d;
+  }
+  function sum (y){
+    let toplam =0;
+    x=y.length;
+    for(let i = 0; i < x; i++){
+      toplam +=y[i];
+    }
+    return toplam;
+  }
+  console.log(range (1,10));
+  console.logrange ((5,2,-1));
+  console.log(sum (range (1,10)));
+
+
+  function analyze(min =0){
+    let a=[];
+    letb toplam=0;
+    for (let evt of EVENTS){
+      let cor = phi :(tableFor (evt));
+      if(JOURNAL.events.includes(evt)){
+        toplam + =toplam;
+      }if(Math.abs(cor)>min){
+        a.push(evt+": "+ cor.toFixed(4))
+      }retrun a;
+    }
+  }
+</pre>
 
 <hr />
 <p>Ref: <a href="http://eloquentjavascript.net/04_data.html#p_LI+01yIQON" 
