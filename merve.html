@@ -1,4 +1,3 @@
-
 <html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -88,12 +87,13 @@ button:hover {
 }
 
 #dy {
-  width : 150px;
-  height: 100px;
+  width : 250px;
+  height: 150px;
   font-family :Arial, Helvetica, sans-serif;
   text-transform : uppercase;
   font-weight : 150000;
   letter-spacing : 10px;
+
 } 
 
 #kkk{
@@ -102,8 +102,8 @@ button:hover {
   position: absolute;
   margin-left:2%;
   margin-top : 317px;
-     
 }
+
 #info{
   width: 280px;
   height: 30px;
@@ -130,10 +130,9 @@ button:hover {
   
   <h3 id="score" >  SCOR :  <text id="scorea" >0</text></h3>
   <h4 id="minutes" > TIME :  <text id="seconds">0</text></h4>
-  
   <div class="modes">
     <button id="info">CLICK FOR THE INFO</button>
-    <button id="kkk">START</button>
+    <button id="kkk">RE-TRY</button>
     <button id="lll">PASS</button>
     <button class="mode">EASY</button>
     <button class="mode">MEDIUM</button>
@@ -155,8 +154,7 @@ button:hover {
   </div>
   
   <script>
-  
-  var karesayi = 12;
+  var karesayi = 4;
   var renkler = [];
   var secilen;
   let score = 0;
@@ -199,6 +197,16 @@ function pass1(){
   setUpColorGame();
   reset();
 }
+ function basla(){
+  score = 0;
+    scorea.innerHTML = score;
+    clearInterval(a);
+    counter=0;
+    a=setInterval(sure,1000 );
+    setUpModeListeners();
+    setUpColorGame();
+    reset();
+}
 function oyna(){
   alert("HOW TO PLAY THIS GAME !? \n\n"+
   "There are RGB color ratios, these ratios represent red, green and blue, respectively. The player "
@@ -210,7 +218,7 @@ function oyna(){
 
   }
 
-  function basla(){
+  
     score = 0;
     scorea.innerHTML = score;
     clearInterval(a);
@@ -219,7 +227,7 @@ function oyna(){
     setUpModeListeners();
     setUpColorGame();
     reset();
-  }
+  
   
   function rastgelenum(){
     var r = Math.floor(Math.random() * 256);
@@ -269,71 +277,55 @@ function oyna(){
          (iyiscor+kötüscor)  + " \n  doğru sayısı :"   +
          iyiscor+  " \n  yanlış sayısı :"   +kötüscor);
          reset();
-  
         }else if(counter<60){
-  
         if(clickedColor === secilen) {
           score +=10;
           iyiscor++;
           scorea.innerHTML = score;
           dy.style.color = secilen;
-        h1.style.background=secilen;
-        h2.style.background=secilen;    
+          h1.style.background=secilen;
+          h2.style.background=secilen;    
           dy.textContent = "Correct!";
           dy.style.color = "Green";
-          changeColors(secilen); 
           reset();
-  
-        } else  {
-            score -=3;
-            kötüscor++;
+        }else{   
+          changeColors(secilen); 
+          
+          score -=3;kötüscor++;
           scorea.innerHTML = score;
           kötüscor++;
-          this.style.backgroundColor = "#232323";
           dy.textContent = "Wrong! ";
           dy.style.color = "Red";
-        }
-      }
-      });
-    };
-  }
+
+        }}});};}
   
   start.addEventListener("click" , function() {
     reset();
   });
   function setUpModeListeners(){
     for (var i = 0; i < modess.length; i++) {
-      modess[i].addEventListener("click" , function(){
+        modess[i].addEventListener("click" , function(){
         modess[0].classList.remove("selected");
         modess[1].classList.remove("selected");
         modess[2].classList.remove("selected");
         this.classList.add("selected");
-       if( this.textContent === "EASY" ){
+        if( this.textContent === "EASY" ){
         karesayi = 4;
        }else if( this.textContent === "MEDIUM" ){
         karesayi = 8;
        }else if( this.textContent === "HARD" ){
         karesayi = 12;
-       }
-        reset();
-      });
-    };
-  }
+       }reset();});};}
+       
   function reset() {
     renkler = rastgelernk(karesayi);
     secilen = pickColor();
     rnk.textContent = secilen;
-  
     for (var i = 0; i < kare.length; i++) {
       if (renkler[i]) {
         kare[i].style.display = "block";
         kare[i].style.backgroundColor = renkler[i];
-      } else {
-        kare[i].style.display = "none";
-      }
-    };
-  };
-  
+      } else {kare[i].style.display = "none";}};};
   </script>
   </body>
   </html>
