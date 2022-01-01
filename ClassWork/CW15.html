@@ -66,13 +66,15 @@ class Student {
 }
 class Course {
     constructor(id, time, date, ...rooms) {
-    }
-    toString() {
         this.id=id;
         this.date=date;
         this.time=time;
         this.list=list;
         this.rooms=rooms;
+    }
+    toString() {
+        return "ID : "+this.id+", Name: "+this.name+",Gpa: "+this.gpa;
+       
     }
     static fromString(s) {
         console.log("\n ID : "+this.id+"\n Name: "+this.name+" \n Gpa: "+this.gpa);
