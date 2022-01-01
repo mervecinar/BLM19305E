@@ -1,12 +1,13 @@
+
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
+    <link rel="icon"   href="https://mervecinar.github.io/BLM19305E//astronaut.png">
     <link href="https://maeyler.github.io/JS/sss/inspector.css" 
           rel="stylesheet" media="all">
     <script src="https://maeyler.github.io/JS/sss/inspector.js"></script>
-    <link rel="icon" href="../images/icon192.png">
     <title>Image Inspector </title>
 
   <style>
@@ -33,7 +34,7 @@
 
 <body>
 <div>
-  <canvas id="canvas"></canvas>
+  <canvas id="canvas" class="canvas"></canvas>
   <span id=color>{x,y} {R,G,B}</span>
 </div>
 <div>
@@ -41,22 +42,22 @@
 <p>Ref: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Pixel_manipulation_with_canvas" 
    target=NewTab>Pixel manipulation</a>
 </p>
-</div>
 <pre>
-     canvas.addEventListener('dblclick', function(){ 
-    cx.drawImage(img, 0, 0);
-    if( canvas.addEventListener('dblclick', function(){ 
-      MENU.flipHorizontally(img,0,0);
-      
+    canvas.addEventListener('dblclick', function(){ 
+   cx.drawImage(img, 0, 0);
+   if( canvas.addEventListener('dblclick', function(){ 
+     MENU.flipHorizontally(img,0,0);
+     
 }) )  }
 });
-    function flipHorizontally(img,a,b){
-        cx.translate(a+img.width,b);
-        cx.scale(-1,1);
-        cx.drawImage(img,0,0);
-        cx.setTransform(1,0,0,1,0,0);
-    }
+   function flipHorizontally(img,a,b){
+       cx.translate(a+img.width,b);
+       cx.scale(-1,1);
+       cx.drawImage(img,0,0);
+       cx.setTransform(1,0,0,1,0,0);
+   }
 </pre>
+</div>
 
 <script>
 "use strict";
@@ -70,21 +71,11 @@ function start() {
   console.log(img.src, "loaded")
   canvas.width = img.width
   canvas.height = img.height
-  MENU.flipHorizontally(img,0,0);
+  cx.drawImage(img, 0, 0)
   MENU.W = canvas.width
   MENU.H = canvas.height
   display(MENU)
 }
-canvas.addEventListener('dblclick', function(){ 
-    cx.drawImage(img, 0, 0);
-    if( canvas.addEventListener('dblclick', function(){ 
-      MENU.flipHorizontally(img,0,0);
-      
-}) ){
-    }
-});
-
-
 function pick(evt) {
   let x = evt.layerX, y = evt.layerY;
   let rgb, avg;
@@ -103,6 +94,22 @@ function pick(evt) {
 }
 
 
+function flipHorizontal() {
+  cx.translate(img.width,0);
+  cx.scale(-1,1);
+  cx.drawImage(img,0,0);
+  cx.setTransform(1,0,0,1,0,0);
+}
+
+canvas.addEventListener('dblclick', function(){ 
+    MENU.flipHorizontal(img, 0, 0);
+    if( canvas.addEventListener('dblclick', function(){ 
+      cx.drawImage(img,0,0);
+      
+}) ){
+    }
+});
+
 
 class Graph extends Menu {
   constructor() {
@@ -113,6 +120,8 @@ class Graph extends Menu {
   }
   loadImage(url) { img.src = url }
   invert() {
+
+
     let id = this.context.getImageData(0, 0, this.W, this.H);
     let data = id.data;
     for (let i = 0; i < data.length; i += 4) {
@@ -123,6 +132,7 @@ class Graph extends Menu {
     this.context.putImageData(id, 0, 0);
   }
   grayscale() {
+    const card = document.querySelector('canvas');
     let id = this.context.getImageData(0, 0, this.W, this.H);
     let data = id.data;
     for (let i = 0; i < data.length; i += 4) {
@@ -131,28 +141,38 @@ class Graph extends Menu {
       data[i+1] = avg; // green
       data[i+2] = avg; // blue
     }
+    card.addEventListener('dblclick', function (e) {
+        start();
+    });
     this.context.putImageData(id, 0, 0);
   }
+
   getPixelAt(x, y) {
     return this.context.getImageData(x, y, 1, 1).data;
   }
-  
-
- flipHorizontally(img,a,b){
-    cx.translate(a+img.width,b);
+  flipHorizontal(){
+    cx.translate(img.width,0);
     cx.scale(-1,1);
     cx.drawImage(img,0,0);
-    cx.setTransform(1,0,0,1,0,0);
+    document.querySelector('canvas');
+        const card = document.querySelector('canvas');
+     card.addEventListener('dblclick', function (e) {
+         start();
+     });
+    
+  }
+
 }
-}
+
 function init() {
-    MENU = new Graph(); //global
+
+    MENU = new Graph(); 
     display(MENU); display(cx); display(img);
     MENU.loadImage("https://blm305.github.io/2021/images/36419031.jpg")
 }
     canvas.addEventListener('mousemove', pick);
     try {
-        inspect(sss, init); //makes Inspector table
+        inspect(sss, init);
         inp.value = "";
     } catch(e) {
         reportError(e);
