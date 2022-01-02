@@ -25,7 +25,6 @@ h3 {
   background-color :   rgb(231, 219, 243);
   color : rgb(0, 0, 0);
   line-height : 1.5;
-  
 }
 h4 {
   text-align:center;
@@ -60,6 +59,7 @@ button {
   letter-spacing : 5px;
   font-size :x-small;
   margin-top : 355px;
+  
 }
 
 button:hover {
@@ -102,6 +102,7 @@ button:hover {
   position: absolute;
   margin-left:2%;
   margin-top : 317px;
+  display: none;
 }
 
 #info{
@@ -163,7 +164,6 @@ button:hover {
   let kötüscor=0;
   var time = document.getElementById("seconds");
   var counter = 0;
-  
   function sure() {
     counter++;
     time.innerHTML =counter;
@@ -191,14 +191,13 @@ oyna();
 });
 function pass1(){
     score -=1;
-
     scorea.innerHTML = score;
-  setUpModeListeners();
-  setUpColorGame();
-  reset();
+    setUpModeListeners();
+    setUpColorGame();
+    reset();
 }
  function basla(){
-  score = 0;
+    score = 0;
     scorea.innerHTML = score;
     clearInterval(a);
     counter=0;
@@ -254,51 +253,61 @@ function oyna(){
       kare[i].style.backgroundColor = secilen;
      }
   };
-  function setUpColorGame() {
+
+        function setUpColorGame() {
     for (var i = 0; i < kare.length; i++) {
       kare[i].style.backgroundColor = renkler[i];
       kare[i].addEventListener("click" , function() {
-        var clickedColor = this.style.backgroundColor;
-        if (counter>=60){
-          clearTimeout(a);
-          counter=0;
-          score = 0;
-          scorea.innerHTML = score;
-          time.innerHTML =counter;
-          alert(" \n  How many times did you guess :" + 
-          (iyiscor+kötüscor) +" \n  Correct ! :"  +
-          iyiscor+ " \n  Wrong ! :"  +kötüscor);
-          iyiscor=0;
-          kötüscor=0;
-          this.style.backgroundColor = "#232323";
-          dy.textContent = " GAME FINSIH ! ";
-          dy.style.color = "Blue";
-         console.log(" \n  deneme sayısı :" + 
-         (iyiscor+kötüscor)  + " \n  doğru sayısı :"   +
-         iyiscor+  " \n  yanlış sayısı :"   +kötüscor);
-         reset();
-        }else if(counter<60){
-        if(clickedColor === secilen) {
-          score +=10;
-          iyiscor++;
-          scorea.innerHTML = score;
-          dy.style.color = secilen;
-          h1.style.background=secilen;
-          h2.style.background=secilen;    
-          dy.textContent = "Correct!";
-          dy.style.color = "Green";
-          reset();
-        }else{   
-          changeColors(secilen); 
-          
-          score -=3;kötüscor++;
-          scorea.innerHTML = score;
-          kötüscor++;
-          dy.textContent = "Wrong! ";
-          dy.style.color = "Red";
 
-        }}});};}
-  
+        var clickedColor = this.style.backgroundColor;
+        if(counter<60){
+        if(clickedColor === secilen) {
+          iyiscor++;
+          score=score+10;
+          scorea.innerHTML=score;
+        
+        dy.textContent = "Correct!";
+        dy.style.color = "Green";
+        h1.style.backgroundColor = secilen;
+        start.textContent = "Play Again";
+        changeColors(secilen);
+        setTimeout(fonksiyon1, 8000);
+        
+      } else {
+        kötüscor++;
+        this.style.backgroundColor = "#232323";
+        dy.textContent = "Try Again!";
+        dy.style.color = "Red";
+      }}else{
+        clearTimeout(a);
+        counter=0;
+        score = 0;
+        scorea.innerHTML = score;
+        time.innerHTML =counter;
+        start.style.display ="initial";
+        alert(" \n  deneme sayısı :" + 
+        (iyiscor+kötüscor) +" \n  doğru sayısı :"  +
+        iyiscor+ " \n  yanlış sayısı :"  +kötüscor);
+        iyiscor=0;
+        kötüscor=0;
+        this.style.backgroundColor = "#232323";
+        dy.textContent = " GAME FINSIH ! ";
+        dy.style.color = "Blue";
+        button.disabled = false;
+       console.log(" \n  deneme sayısı :" + 
+       (iyiscor+kötüscor)  + " \n  doğru sayısı :"   +
+       iyiscor+  " \n  yanlış sayısı :"   +kötüscor);
+
+      }
+       });};}
+
+        function fonksiyon1() 
+{   
+           dy.textContent=" ";
+           h1.style.background=  "#e9e9e9";
+          h2.style.background="#e9e9e9";
+          reset();  
+}
   start.addEventListener("click" , function() {
     reset();
   });
