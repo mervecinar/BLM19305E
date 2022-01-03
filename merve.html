@@ -259,11 +259,13 @@ function changeColors(color) {
     kare[i].style.backgroundColor = renkler[i];
     kare[i].addEventListener("click" , function() {
 
+
       var clickedColor = this.style.backgroundColor;
       if(counter<60){
       if(clickedColor === secilen) {
+        c=0;
         iyiscor++;
-        scorea.innerHTML=score;
+      scorea.innerHTML=score;
       dy.textContent = "Correct!";
       dy.style.color = "Green";
       h1.style.backgroundColor = secilen;
@@ -283,34 +285,39 @@ function changeColors(color) {
       scorea.innerHTML = score;
       time.innerHTML =counter;
       start.style.display ="initial";
+      console.log(" \n  deneme sayısı :" + 
+     (iyiscor+kötüscor)  + " \n  doğru sayısı :" +
+     iyiscor+  " \n  yanlış sayısı :"   +kötüscor);
       alert(" \n  deneme sayısı :" + 
       (iyiscor+kötüscor) +" \n  doğru sayısı :"  +
       iyiscor+ " \n  yanlış sayısı :"  +kötüscor);
       iyiscor=0;
       kötüscor=0;
       this.style.backgroundColor = "#232323";
-      dy.textContent = " GAME FINSIH ! ";
+      dy.textContent = " GAME FINISH ! ";
       dy.style.color = "Blue";
-      button.disabled = false;
-     console.log(" \n  deneme sayısı :" + 
-     (iyiscor+kötüscor)  + " \n  doğru sayısı :"   +
-     iyiscor+  " \n  yanlış sayısı :"   +kötüscor);
-
+     
     }
      });};}
+     var c;
 
       function fonksiyon1() 
-{   
+{       
+  if(c==0){
          score=score+10;
          scorea.innerHTML=score;
-         
          h1.style.background= "#e9e9e9";
         h2.style.background="#e9e9e9";
         dy.textContent="New Colors";
         dy.style.color="rgb(99, 99, 99)";
+     
         reset();  
+  }
+  c=1;
 }
 start.addEventListener("click" , function() {
+  dy.textContent="New Colors";
+  dy.style.color="rgb(99, 99, 99)";
   reset();
 });
 function setUpModeListeners(){
@@ -340,3 +347,4 @@ function reset() {
 </script>
 </body>
 </html>
+
